@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaBridge - Create Account</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Premium Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="auth-page" style="padding: 3rem 1rem;">
+
+    <div class="glass-panel auth-card" style="max-width: 520px;">
+        
+        <!-- Auth Header -->
+        <div class="auth-header">
+            <div style="font-size: 2.5rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem; text-align: center;">
+                <i class="fa-solid fa-bridge"></i> NovaBridge
+            </div>
+            <h1>Create Account</h1>
+            <p>Join NovaBridge and streamline your loan processes</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form method="POST" action="/register">
+            
+            <!-- Full Name -->
+            <div class="form-group">
+                <label class="form-label" for="full_name">Full Name</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-user" style="position: absolute; left: 1rem; top: 1.05rem; color: var(--text-muted);"></i>
+                    <input type="text" id="full_name" name="full_name" class="form-input" style="padding-left: 2.75rem;" placeholder="e.g. John Doe" required>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-envelope" style="position: absolute; left: 1rem; top: 1.05rem; color: var(--text-muted);"></i>
+                    <input type="email" id="email" name="email" class="form-input" style="padding-left: 2.75rem;" placeholder="name@example.com" required>
+                </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-phone" style="position: absolute; left: 1rem; top: 1.05rem; color: var(--text-muted);"></i>
+                    <input type="text" id="phone" name="phone" class="form-input" style="padding-left: 2.75rem;" placeholder="e.g. +1 (555) 123-4567">
+                </div>
+            </div>
+
+            <!-- National ID -->
+            <div class="form-group">
+                <label class="form-label" for="national_id">National ID / Passport</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-id-card" style="position: absolute; left: 1rem; top: 1.05rem; color: var(--text-muted);"></i>
+                    <input type="text" id="national_id" name="national_id" class="form-input" style="padding-left: 2.75rem;" placeholder="e.g. N1234567A">
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group" style="margin-bottom: 2rem;">
+                <label class="form-label" for="password">Password</label>
+                <div style="position: relative;">
+                    <i class="fa-solid fa-lock" style="position: absolute; left: 1rem; top: 1.05rem; color: var(--text-muted);"></i>
+                    <input type="password" id="password" name="password" class="form-input" style="padding-left: 2.75rem;" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-user-plus"></i>
+                Register Secure Account
+            </button>
+
+        </form>
+
+        <!-- Redirect to Login -->
+        <div class="auth-footer">
+            Already registered? 
+            <a href="/login">Sign in here</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

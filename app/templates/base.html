@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}NovaBridge - Next-Gen Loan Portal{% endblock %}</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Premium Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar">
+            <div>
+                <!-- Brand Logo -->
+                <div class="sidebar-logo">
+                    <span class="logo-icon"><i class="fa-solid fa-bridge"></i></span>
+                    <span class="logo-text">NovaBridge</span>
+                </div>
+
+                <!-- Navigation List -->
+                <nav class="sidebar-nav">
+                    {% if request.path.startswith('/admin') %}
+                        <!-- Admin Navigation links -->
+                        <a href="/admin" class="nav-item {% if request.path == '/admin' or request.path == '/admin/' %}active{% endif %}">
+                            <i class="fa-solid fa-circle-nodes"></i>
+                            <span>Admin Board</span>
+                        </a>
+                        <a href="/admin/documents" class="nav-item {% if request.path == '/admin/documents' %}active{% endif %}">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Document Vault</span>
+                        </a>
+                    {% else %}
+                        <!-- Standard Customer Navigation links -->
+                        <a href="/dashboard" class="nav-item {% if request.path == '/dashboard' %}active{% endif %}">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="/apply-loan" class="nav-item {% if request.path == '/apply-loan' %}active{% endif %}">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <span>Apply Loan</span>
+                        </a>
+                        <a href="/my-loans" class="nav-item {% if request.path == '/my-loans' %}active{% endif %}">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>My Loans</span>
+                        </a>
+                        <a href="/my-documents" class="nav-item {% if request.path == '/my-documents' %}active{% endif %}">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span>My Documents</span>
+                        </a>
+                        <a href="/upload-document" class="nav-item {% if request.path == '/upload-document' %}active{% endif %}">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span>Upload Documents</span>
+                        </a>
+                        <a href="/notifications" class="nav-item {% if request.path == '/notifications' %}active{% endif %}">
+                            <i class="fa-solid fa-bell"></i>
+                            <span>Notifications</span>
+                            {% if unread_notifications_count > 0 %}
+                                <span class="badge" style="background: var(--danger); color: white; padding: 0.15rem 0.45rem; border-radius: 50%; font-size: 0.75rem; margin-left: auto; line-height: 1; font-weight: bold; box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);">
+                                    {{ unread_notifications_count }}
+                                </span>
+                            {% endif %}
+                        </a>
+                    {% endif %}
+                </nav>
+            </div>
+
+            <!-- Sidebar Footer (Portal switch & profile info) -->
+            <div class="sidebar-footer">
+                <!-- Interactive Portal Switcher -->
+                <div class="portal-switch-card">
+                    {% if request.path.startswith('/admin') %}
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 500;">Admin Mode</p>
+                        <a href="/dashboard" class="portal-switch-btn">
+                            <i class="fa-solid fa-circle-user"></i> Customer Panel
+                        </a>
+                    {% else %}
+                        <p style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 500;">Manage Applications?</p>
+                        <a href="/admin" class="portal-switch-btn">
+                            <i class="fa-solid fa-user-shield"></i> Admin Portal
+                        </a>
+                    {% endif %}
+                </div>
+
+                <!-- User Badge -->
+                {% if current_user.is_authenticated %}
+                <div class="user-profile-badge">
+                    <div class="profile-avatar">
+                        {{ current_user.full_name[0] | upper if current_user.full_name else 'U' }}
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-name">{{ current_user.full_name }}</div>
+                        <div class="profile-role">
+                            {% if request.path.startswith('/admin') %}
+                                Administrator
+                            {% else %}
+                                Customer Profile
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Logout -->
+                <a href="/logout" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Log Out</span>
+                </a>
+                {% endif %}
+            </div>
+        </aside>
+
+        <!-- Main Content Panel -->
+        <main class="app-content">
+            
+            <!-- Toast Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-container">
+                        {% for category, msg in messages %}
+                            <!-- Maps bootstrap danger to styling danger, success/warning matching -->
+                            <div class="flash-message {{ 'danger' if category == 'error' or category == 'danger' else category }}">
+                                <i class="fa-solid {% if category == 'success' %}fa-circle-check{% elif category == 'warning' %}fa-triangle-exclamation{% else %}fa-circle-exclamation{% endif %}"></i>
+                                <span>{{ msg }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <!-- Core Content Block -->
+            {% block content %}{% endblock %}
+
+        </main>
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}NovaBridge - Upload Verification Documents{% endblock %}
+
+{% block content %}
+<div class="top-header">
+    <h1 class="page-title">Upload Documents</h1>
+</div>
+
+<div class="glass-panel form-container">
+    <h2 style="font-size: 1.5rem; margin-bottom: 2rem; text-align: center; color: var(--primary-light);">
+        <i class="fa-solid fa-cloud-arrow-up" style="margin-right: 0.5rem;"></i>
+        Submit Verification Document
+    </h2>
+
+    <form method="POST" action="/upload-document" enctype="multipart/form-data">
+        
+        <!-- Document Type Selector -->
+        <div class="form-group">
+            <label class="form-label" for="document_type">Document Type</label>
+            <select name="document_type" id="document_type" class="form-select">
+                <option value="National ID">National ID Document</option>
+                <option value="Payslip">Recent Payslip / Proof of Income</option>
+                <option value="Proof of Address">Utility Bill / Proof of Address</option>
+            </select>
+        </div>
+
+        <!-- File Upload -->
+        <div class="form-group">
+            <label class="form-label" for="document">Choose File (PDF, PNG, JPG)</label>
+            <input type="file" id="document" name="document" class="form-input" style="padding: 0.75rem;" required>
+        </div>
+
+        <div style="margin-top: 2rem;">
+            <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                Upload File to Vault
+            </button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

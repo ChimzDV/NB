@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}NovaBridge - My Documents{% endblock %}
+
+{% block content %}
+<div class="top-header">
+    <h1 class="page-title">My Documents</h1>
+    <div class="header-actions">
+        <a href="/upload-document" class="submit-btn" style="width: auto; padding: 0.6rem 1.25rem; font-size: 0.85rem;">
+            <i class="fa-solid fa-plus"></i> Upload New
+        </a>
+    </div>
+</div>
+
+{% if documents %}
+    <!-- Document Card Grid Gallery -->
+    <div class="doc-gallery">
+        {% for doc in documents %}
+            <div class="doc-card glass-panel">
+                <div class="doc-icon">
+                    {% if doc.document_type == 'National ID' %}
+                        <i class="fa-solid fa-id-card"></i>
+                    {% elif doc.document_type == 'Payslip' %}
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                    {% else %}
+                        <i class="fa-solid fa-file-invoice"></i>
+                    {% endif %}
+                </div>
+                <div class="doc-title" title="{{ doc.file_name }}">{{ doc.file_name }}</div>
+                <div class="doc-meta">
+                    <span class="status-badge active" style="font-size: 0.7rem; padding: 0.15rem 0.5rem;">
+                        {{ doc.document_type }}
+                    </span>
+                </div>
+                <!-- Standard file path link or static download download helper if desired -->
+                <p style="font-size: 0.7rem; color: var(--text-muted); word-break: break-all; margin-top: 0.25rem;">
+                    Vault ID: #{{ doc.id }}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <!-- Beautiful Glass Empty State Card -->
+    <div class="glass-panel" style="padding: 4rem 2rem; text-align: center; max-width: 600px; margin: 2rem auto;">
+        <i class="fa-solid fa-folder-open" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1.5rem;"></i>
+        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary);">No Documents Found</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">You haven't uploaded any verification files to your vault yet. Submitting your ID and payslips helps accelerate your loan approvals!</p>
+        <a href="/upload-document" class="submit-btn" style="display: inline-flex; width: auto; padding: 0.85rem 2.5rem; margin: 0 auto;">
+            <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Your First File
+        </a>
+    </div>
+{% endif %}
+{% endblock %}
