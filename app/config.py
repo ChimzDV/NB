@@ -4,7 +4,8 @@ class Config:
     SECRET_KEY = "novabridge_secret_key"
 
     SQLALCHEMY_DATABASE_URI = (
-    "mysql+pymysql://root:chimwemwe%402026@localhost/novabridge_db"
+    # "mysql+pymysql://root:chimwemwe%402026@localhost/novabridge_db"
+    "sqlite:///novabridge.db"
     )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
