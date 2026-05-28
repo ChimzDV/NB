@@ -32,7 +32,8 @@ def register():
     db.session.add(user)
     db.session.commit()
 
-    return "Registration Successful"
+    print("Registration Successful")
+    return render_template("auth/login.html")
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():
@@ -59,4 +60,5 @@ def logout():
 
     logout_user()
 
-    return "Logged Out Successfully"    
+    print("Logged Out Successfully")
+    return render_template("auth/login.html")    

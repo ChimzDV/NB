@@ -13,7 +13,67 @@
 
     <div class="app-container">
         
-        <!-- Sidebar Navigation -->
+        <!-- Mobile Top App Bar -->
+        <header class="mobile-top-bar">
+            <div class="sidebar-logo">
+                <span class="logo-icon"><i class="fa-solid fa-bridge"></i></span>
+                <span class="logo-text">NovaBridge</span>
+            </div>
+            <div class="mobile-top-actions">
+                {% if current_user.is_authenticated %}
+                <div class="profile-avatar mobile-avatar">
+                    {{ current_user.full_name[0] | upper if current_user.full_name else 'U' }}
+                </div>
+                <a href="/logout" class="mobile-logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- Mobile Bottom Navigation Bar -->
+        <nav class="mobile-bottom-bar">
+            {% if request.path.startswith('/admin') %}
+                <a href="/admin" class="mobile-nav-item {% if request.path == '/admin' or request.path == '/admin/' %}active{% endif %}">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                    <span>Board</span>
+                </a>
+                <a href="/admin/documents" class="mobile-nav-item {% if request.path == '/admin/documents' %}active{% endif %}">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Vault</span>
+                </a>
+                <a href="/dashboard" class="mobile-nav-item">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Customer</span>
+                </a>
+            {% else %}
+                <a href="/dashboard" class="mobile-nav-item {% if request.path == '/dashboard' %}active{% endif %}">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/my-loans" class="mobile-nav-item {% if request.path == '/my-loans' %}active{% endif %}">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>Loans</span>
+                </a>
+                <a href="/apply-loan" class="mobile-nav-item {% if request.path == '/apply-loan' %}active{% endif %}">
+                    <div class="mobile-fab">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span>Apply</span>
+                </a>
+                <a href="/my-documents" class="mobile-nav-item {% if request.path == '/my-documents' or request.path == '/upload-document' %}active{% endif %}">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>Docs</span>
+                </a>
+                <a href="/notifications" class="mobile-nav-item {% if request.path == '/notifications' %}active{% endif %}">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Alerts</span>
+                    {% if unread_notifications_count and unread_notifications_count > 0 %}
+                        <span class="mobile-badge">{{ unread_notifications_count }}</span>
+                    {% endif %}
+                </a>
+            {% endif %}
+        </nav>
+
+        <!-- Sidebar Navigation (Desktop) -->
         <aside class="app-sidebar">
             <div>
                 <!-- Brand Logo -->
