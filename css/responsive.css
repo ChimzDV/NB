@@ -1,0 +1,798 @@
+/* ==========================================================================
+   Comprehensive Mobile & Tablet Responsive Architecture
+   Fully optimized for 360px, 375px, 390px, 414px, 430px, 768px, 900px, 1024px
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+    .phone-overlap-wrapper {
+        top: -75px;
+        left: 45%;
+    }
+
+    .phone-mockup-stack {
+        width: 280px;
+    }
+
+    .badge-top-left {
+        left: 0 !important;
+    }
+
+    .badge-bottom-right {
+        right: 0 !important;
+    }
+}
+
+@media (max-width: 991px) {
+    /* Navbar Mobile Menu Layout */
+    .navbar > .container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: wrap !important;
+    }
+
+    .nav-system-status {
+        display: none !important;
+    }
+
+    .navbar-toggler {
+        width: 44px;
+        height: 44px;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        transition: var(--transition-fast);
+        padding: 0;
+    }
+
+    .navbar-toggler-icon {
+        width: 22px;
+        height: 22px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .navbar-collapse.collapse:not(.show) {
+        display: none !important;
+    }
+
+    .navbar-collapse.collapse.show {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .navbar-toggler:focus,
+    .navbar-toggler:active {
+        border-color: var(--neon-emerald) !important;
+        box-shadow: 0 0 12px rgba(0, 232, 148, 0.3);
+    }
+
+    .navbar-collapse {
+        background: rgba(3, 7, 18, 0.98);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(0, 232, 148, 0.25);
+        border-radius: 18px;
+        padding: 1.25rem;
+        margin-top: 0.75rem;
+        max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(0, 232, 148, 0.12);
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 14px !important;
+        font-size: 1.05rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+    }
+
+    .navbar-nav .nav-link:active {
+        background: rgba(0, 232, 148, 0.08);
+        color: var(--neon-emerald) !important;
+    }
+
+    .nav-cta-btn {
+        width: 100%;
+        min-height: 48px;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .ps-lg-5 {
+        padding-left: calc(var(--bs-gutter-x) * 0.5) !important;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 100px 0 50px;
+        min-height: auto;
+    }
+
+    .fintech-hud-stage {
+        margin-top: 2rem;
+        max-width: 100%;
+        perspective: none;
+    }
+
+    .hud-main-terminal {
+        transform: none !important;
+    }
+
+    /* Bento Grid */
+    .bento-card-large .bento-content,
+    .bento-card-accent .bento-content {
+        min-height: auto;
+    }
+
+    /* Logo Symbol Grid */
+    .logo-symbol-composition {
+        max-width: 520px;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Mobile Platform & Rates */
+    .phone-overlap-wrapper {
+        top: -85px;
+        left: 50%;
+    }
+
+    .phone-mockup-stack {
+        width: 260px;
+    }
+
+    .stack-panel {
+        padding-top: 140px;
+        padding-bottom: 45px;
+    }
+
+    .mobile-platform-col {
+        text-align: center;
+        margin: 0 auto 3rem;
+        max-width: 100%;
+    }
+
+    .mobile-pill-header {
+        justify-content: center;
+    }
+
+    .capsule-extending-line {
+        display: none;
+    }
+
+    .mobile-replica-desc {
+        margin: 0 auto 2rem;
+        text-align: center;
+    }
+
+    .download-badges-replica {
+        justify-content: center;
+    }
+
+    .repayment-rates-col {
+        margin: 1.5rem auto 0;
+        max-width: 500px;
+    }
+
+    .rates-header-replica {
+        justify-content: center;
+    }
+
+    .rates-extending-line {
+        display: none;
+    }
+
+    .bottom-trust-bar {
+        margin-top: 45px;
+    }
+
+    .trust-item-col {
+        margin-bottom: 18px;
+    }
+
+    .trust-divider-col {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 18px;
+    }
+
+    .contact-terminal-box {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero-main-title {
+        font-size: clamp(2rem, 6.5vw, 2.75rem);
+        line-height: 1.2;
+    }
+
+    .hero-lead-desc {
+        font-size: 1.05rem;
+        line-height: 1.55;
+    }
+
+    .hero-ambient-glow {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    .hud-main-terminal {
+        padding: 1.35rem 1.15rem;
+    }
+
+    .balance-number {
+        font-size: 1.65rem;
+    }
+
+    .floating-hud-badge {
+        position: static !important;
+        width: 100%;
+        margin-top: 12px;
+        animation: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Solutions HUD Pods */
+    .solutions-hud-section {
+        padding: 3.5rem 0;
+    }
+
+    .solutions-hud-col {
+        margin-top: 2rem;
+    }
+
+    .hud-metric-pod {
+        padding: 1.25rem 0.85rem !important;
+        border-radius: 16px;
+    }
+
+    .hud-ring-wrapper {
+        width: 72px;
+        height: 72px;
+    }
+
+    .hud-counter-val {
+        font-size: 1.55rem;
+    }
+
+    .hud-counter-label {
+        font-size: 0.72rem;
+    }
+
+    /* Logo Symbol Grid */
+    .logo-symbol-composition {
+        max-width: 100%;
+        padding: 16px 18px;
+    }
+
+    .logo-row-top,
+    .logo-row-bottom {
+        height: 220px;
+    }
+
+    .logo-symbol-tile.tile-large {
+        height: 220px;
+    }
+
+    .logo-symbol-tile.tile-small {
+        height: 130px;
+    }
+
+    .about-section::before {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    /* Mobile Platform & Rates */
+    .stack-panel {
+        padding-top: 130px;
+        padding-bottom: 40px;
+    }
+
+    .phone-overlap-wrapper {
+        top: -75px;
+        left: 50%;
+    }
+
+    .phone-mockup-stack {
+        width: 230px;
+    }
+
+    .mobile-replica-heading {
+        font-size: 2.25rem;
+    }
+
+    .replica-rate-card {
+        padding: 0 18px;
+        height: 68px;
+    }
+
+    .card-left-group {
+        width: 125px;
+    }
+
+    .rate-term-text {
+        font-size: 1rem;
+    }
+
+    .rate-percent-num {
+        font-size: 1.8rem;
+    }
+
+    /* Contact & Terminal */
+    .contact-terminal-box {
+        padding: 1.5rem 1.25rem !important;
+        border-radius: 18px;
+    }
+
+    .terminal-input-field {
+        min-height: 48px;
+        font-size: 0.95rem;
+    }
+
+    .editorial-review-card {
+        padding: 1.4rem 1.25rem;
+        border-radius: 18px;
+    }
+
+    /* Institutional Footer */
+    .fintech-footer,
+    .footer-institutional {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .fintech-footer .row > [class*="col-"],
+    .footer-institutional .row > [class*="col-"] {
+        margin-bottom: 2rem;
+    }
+
+    .footer-nav-link {
+        padding: 6px 0;
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Hero Action Buttons */
+    .hero-action-group,
+    .hero-actions {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .hero-action-group .btn-neon-emerald,
+    .hero-action-group .btn-glass-secondary,
+    .hero-actions .btn-neon-emerald,
+    .hero-actions .btn-ghost-gold {
+        width: 100% !important;
+        min-height: 48px;
+        justify-content: center;
+        text-align: center;
+        display: inline-flex !important;
+    }
+
+    /* Bento Cards */
+    .bento-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .bento-title {
+        font-size: 1.25rem;
+    }
+
+    .bento-desc {
+        font-size: 0.88rem;
+    }
+
+    .bento-action-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Brand & Navigation */
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .navbar-logo {
+        height: 34px;
+    }
+
+    .brand-title {
+        font-size: 1.1rem;
+    }
+
+    .brand-subtitle {
+        font-size: 0.58rem;
+    }
+
+    /* Hero Typography */
+    .hero-main-title {
+        font-size: clamp(1.8rem, 7.5vw, 2.25rem);
+        line-height: 1.2;
+    }
+
+    .hero-live-badge {
+        font-size: 0.68rem;
+        padding: 4px 10px;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    /* Solutions HUD Pods */
+    .solutions-hud-col .row {
+        --bs-gutter-x: 0.75rem;
+        --bs-gutter-y: 0.75rem;
+    }
+
+    .hud-metric-pod {
+        padding: 1rem 0.5rem !important;
+        border-radius: 14px;
+    }
+
+    .hud-ring-wrapper {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 0.5rem;
+    }
+
+    .hud-ring-svg {
+        width: 62px;
+        height: 62px;
+    }
+
+    .hud-counter-val {
+        font-size: 1.35rem;
+        margin-bottom: 2px;
+    }
+
+    .hud-counter-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.05em;
+    }
+
+    /* Logo Symbol Grid */
+    .logo-symbol-composition {
+        padding: 10px 12px;
+        max-width: 100%;
+    }
+
+    .logo-symbol-grid {
+        gap: 12px;
+    }
+
+    .logo-symbol-row {
+        gap: 10px;
+    }
+
+    .logo-symbol-tile {
+        transform: skewX(-9deg);
+        border-radius: 14px;
+    }
+
+    .logo-symbol-tile:active {
+        transform: skewX(-9deg) translateY(-2px);
+        border-color: rgba(0, 232, 148, 0.75);
+    }
+
+    .logo-tile-bg {
+        transform: skewX(9deg);
+    }
+
+    .logo-tile-unskew-content {
+        transform: skewX(9deg);
+        padding: 0.8rem 0.85rem;
+    }
+
+    .logo-symbol-tile.tile-small .logo-tile-unskew-content {
+        padding: 0.65rem 0.75rem;
+    }
+
+    .logo-row-top,
+    .logo-row-bottom {
+        height: 190px;
+    }
+
+    .logo-symbol-tile.tile-large {
+        height: 190px;
+    }
+
+    .logo-symbol-tile.tile-small {
+        height: 115px;
+    }
+
+    .logo-tile-title {
+        font-size: 0.92rem;
+    }
+
+    .logo-symbol-tile.tile-small .logo-tile-title {
+        font-size: 0.8rem;
+    }
+
+    .logo-tile-desc {
+        font-size: 0.68rem;
+        line-height: 1.25;
+    }
+
+    .logo-symbol-tile.tile-small .logo-tile-desc {
+        font-size: 0.62rem;
+        line-height: 1.2;
+    }
+
+    /* Phone Mockup & Rates */
+    .stack-panel {
+        padding-top: 105px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .phone-overlap-wrapper {
+        top: -55px;
+        left: 50%;
+    }
+
+    .phone-mockup-stack {
+        width: 190px;
+    }
+
+    .mobile-replica-heading {
+        font-size: clamp(1.75rem, 6.8vw, 2.15rem);
+        line-height: 1.22;
+    }
+
+    .mobile-replica-desc {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .download-badges-replica {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .badge-gold-outline {
+        width: 100%;
+        max-width: 250px;
+        min-height: 48px;
+        justify-content: center;
+    }
+
+    .replica-rate-card {
+        padding: 0 12px;
+        height: 62px;
+        margin-bottom: 10px;
+    }
+
+    .card-left-group {
+        width: 105px;
+        gap: 8px;
+    }
+
+    .rate-term-text {
+        font-size: 0.88rem;
+    }
+
+    .rate-vertical-divider {
+        margin: 0 8px;
+    }
+
+    .card-right-group {
+        width: 70px;
+    }
+
+    .rate-percent-num {
+        font-size: 1.45rem;
+    }
+
+    .trust-item-text {
+        font-size: 0.88rem;
+        white-space: normal;
+    }
+
+    /* Contact Form Terminal */
+    .contact-terminal-box {
+        padding: 1.25rem 0.95rem !important;
+        border-radius: 16px;
+    }
+
+    .terminal-input-field {
+        min-height: 46px;
+        padding: 0.7rem 0.85rem;
+        font-size: 0.92rem;
+    }
+}
+
+/* Micro Mobile Breakpoint for 360px - 375px Viewports */
+@media (max-width: 375px) {
+    .logo-symbol-tile {
+        transform: skewX(-7deg);
+    }
+
+    .logo-symbol-tile:active {
+        transform: skewX(-7deg) translateY(-2px);
+    }
+
+    .logo-tile-bg,
+    .logo-tile-unskew-content {
+        transform: skewX(7deg);
+    }
+
+    .logo-row-top,
+    .logo-row-bottom {
+        height: 175px;
+    }
+
+    .logo-symbol-tile.tile-large {
+        height: 175px;
+    }
+
+    .logo-symbol-tile.tile-small {
+        height: 105px;
+    }
+
+    .phone-mockup-stack {
+        width: 175px;
+    }
+
+    .phone-overlap-wrapper {
+        top: -45px;
+    }
+
+    .stack-panel {
+        padding-top: 95px;
+    }
+
+    .card-left-group {
+        width: 95px;
+    }
+
+    .rate-term-text {
+        font-size: 0.82rem;
+    }
+
+    .rate-percent-num {
+        font-size: 1.35rem;
+    }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+/* ==========================================================================
+   APPLY & TERMS RESPONSIVE BREAKPOINTS + PRINT RULES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .apply-header {
+        padding: 50px 0 30px;
+    }
+    .apply-header h1 {
+        font-size: 2rem;
+    }
+    .form-section-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+        margin-bottom: 1.5rem;
+    }
+    .btn-submit-application {
+        width: 100%;
+        padding: 0.95rem 1.5rem;
+    }
+    .legal-container {
+        margin: 25px auto;
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+    .legal-section {
+        margin-bottom: 25px;
+    }
+    .legal-section h4 {
+        font-size: 1.15rem;
+    }
+    .print-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .apply-header {
+        padding: 35px 0 20px;
+    }
+    .apply-header h1 {
+        font-size: 1.6rem;
+    }
+    .apply-header p {
+        font-size: 0.92rem;
+    }
+    .form-section-card {
+        padding: 1.2rem 0.9rem;
+        border-radius: 14px;
+        margin-bottom: 1.2rem;
+    }
+    .section-title {
+        font-size: 0.82rem;
+        margin-bottom: 1.2rem;
+    }
+    .selection-group {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .custom-check-card {
+        padding: 0.75rem 0.4rem;
+        font-size: 0.85rem;
+    }
+    .repayment-option {
+        padding: 0.7rem 0.85rem;
+        font-size: 0.88rem;
+    }
+    .btn-submit-application {
+        width: 100%;
+        padding: 0.95rem 1rem;
+        font-size: 0.88rem;
+        letter-spacing: 0.5px;
+    }
+    .legal-container {
+        margin: 15px 10px;
+        padding: 20px 14px;
+        border-radius: 12px;
+    }
+    .legal-section h4 {
+        font-size: 1.05rem;
+    }
+    .legal-section ul {
+        padding-left: 15px;
+    }
+    .nb-toast-container {
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+@media print {
+    .discipline-sidebar,
+    .navbar,
+    .print-btn,
+    .back-btn {
+        display: none !important;
+    }
+    .legal-container {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now | NovaBridge Enterprise</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+    <meta name="novabridge-api-url" content="">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="apply-page">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-nav">
+        <div class="container py-2">
+            <a class="navbar-brand fw-bold tracking-wider d-flex align-items-center gap-2" href="index.html">
+                <img src="assets/images/lg.png" alt="NovaBridge Logo" class="navbar-logo">
+                <span>NOVA<span class="text-gold">BRIDGE</span></span>
+            </a>
+            <a href="index.html" class="btn btn-outline-light rounded-pill px-4 btn-sm">BACK TO HOME</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="apply-header text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold text-white mb-2">NOVABRIDGE <span class="text-gold">ENTERPRISE</span></h1>
+            <p class="lead text-secondary">A new standard in smart financing</p>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <main class="container pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form action="#" method="POST" id="loanApplicationForm">
+                    
+                    <!-- SECTION 1: PERSONAL DETAILS -->
+                    <div class="form-section-card">
+                        <div class="section-title">
+                            <i class="bi bi-person-badge-fill"></i>
+                            PERSONAL DETAILS
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" id="applicantFullName" name="full_name" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">NRC/ID Number</label>
+                                <input type="text" id="applicantNrcId" name="nrc_id" class="form-control" placeholder="000000/00/0" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" id="applicantPhone" name="phone" class="form-control" placeholder="+260" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" id="applicantEmail" name="email" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">Residential Address</label>
+                                <textarea id="applicantAddress" name="residential_address" class="form-control" rows="2" placeholder="Street, City, Province"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Next of Kin Name</label>
+                                <input type="text" id="applicantNokName" name="next_of_kin_name" class="form-control" placeholder="Emergency contact name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Next of Kin Phone</label>
+                                <input type="tel" id="applicantNokPhone" name="next_of_kin_phone" class="form-control" placeholder="Emergency contact phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: EMPLOYMENT & INCOME -->
+                    <div class="form-section-card">
+                        <div class="section-title">
+                            <i class="bi bi-briefcase-fill"></i>
+                            EMPLOYMENT & INCOME
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <label class="form-label d-block mb-3">Employment Status</label>
+                                <div class="selection-group">
+                                    <label class="position-relative cursor-pointer">
+                                        <input type="radio" name="employment_status" value="employed" class="position-absolute opacity-0" checked>
+                                        <div class="custom-check-card">Employed</div>
+                                    </label>
+                                    <label class="position-relative cursor-pointer">
+                                        <input type="radio" name="employment_status" value="self-employed" class="position-absolute opacity-0">
+                                        <div class="custom-check-card">Self-employed</div>
+                                    </label>
+                                    <label class="position-relative cursor-pointer">
+                                        <input type="radio" name="employment_status" value="business-owner" class="position-absolute opacity-0">
+                                        <div class="custom-check-card">Business Owner</div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="employerNameRow">
+                                <label class="form-label" id="employerNameLabel">Employer Name</label>
+                                <input type="text" class="form-control" id="employerNameInput" placeholder="Company Name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Monthly Income (ZMW)</label>
+                                <input type="number" id="monthlyIncomeInput" name="monthly_income" class="form-control" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: REQUEST DETAILS -->
+                    <div class="form-section-card">
+                        <div class="section-title">
+                            <i class="bi bi-cash-stack"></i>
+                            REQUEST DETAILS
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Amount Requested (ZMW)</label>
+                                <input type="number" id="loanAmount" class="form-control" placeholder="Enter amount" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Purpose of Funds</label>
+                                <input type="text" id="loanPurposeInput" name="purpose" class="form-control" placeholder="Business, Emergency, etc.">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label d-block mb-3">Preferred Repayment Period</label>
+                                <div class="row g-2">
+                                    <div class="col-sm-6">
+                                        <label class="w-100 cursor-pointer">
+                                            <input type="radio" name="repayment_period" value="1_week" data-rate="0.15" class="position-absolute opacity-0" checked>
+                                            <div class="repayment-option">
+                                                <span>1 Week</span>
+                                                <span class="rate-badge">15%</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="w-100 cursor-pointer">
+                                            <input type="radio" name="repayment_period" value="2_weeks" data-rate="0.20" class="position-absolute opacity-0">
+                                            <div class="repayment-option">
+                                                <span>2 Weeks</span>
+                                                <span class="rate-badge">20%</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="w-100 cursor-pointer">
+                                            <input type="radio" name="repayment_period" value="3_weeks" data-rate="0.25" class="position-absolute opacity-0">
+                                            <div class="repayment-option">
+                                                <span>3 Weeks</span>
+                                                <span class="rate-badge">25%</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="w-100 cursor-pointer">
+                                            <input type="radio" name="repayment_period" value="4_weeks" data-rate="0.30" class="position-absolute opacity-0">
+                                            <div class="repayment-option">
+                                                <span>4 Weeks</span>
+                                                <span class="rate-badge">30%</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- REPAYMENT SUMMARY -->
+                            <div class="col-12">
+                                <div class="repayment-summary p-4 mt-2" style="background: rgba(46, 204, 113, 0.05); border: 1px dashed rgba(46, 204, 113, 0.3); border-radius: 15px;">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-white mb-1">Repayment Summary</h6>
+                                            <p class="small text-secondary mb-0">Total amount to be paid back</p>
+                                        </div>
+                                        <div class="text-end">
+                                            <h4 class="text-success fw-bold mb-0" id="totalRepayment">ZMW 0.00</h4>
+                                            <span class="small text-muted" id="interestBreakdown">Incl. 0% interest</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4: SECURITY DETAILS -->
+                    <div class="form-section-card">
+                        <div class="section-title">
+                            <i class="bi bi-shield-lock-fill"></i>
+                            SECURITY DETAILS
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-12">
+                                <label class="form-label">Asset Description</label>
+                                <input type="text" id="assetDescriptionInput" name="asset_description" class="form-control" placeholder="Vehicle, Land, etc.">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Estimated Value (ZMW)</label>
+                                <input type="number" id="estimatedAssetValueInput" name="estimated_asset_value" class="form-control" placeholder="0.00">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label d-block mb-3">Proof of Ownership Available?</label>
+                                <div class="form-check form-switch custom-switch pt-1">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="proofSwitch" checked>
+                                    <label class="form-check-label text-white ms-2" for="proofSwitch">Yes, I have proof</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn btn-submit-application">Submit Loan Application</button>
+                        <p class="small text-muted mt-3">By submitting, you agree to our assessment terms and privacy policy.</p>
+                    </div>
+
+                    <!-- Live Application Reference & Status Confirmation -->
+                    <div id="applicationConfirmationBox" class="application-confirmation-box text-center">
+                        <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+                            <i class="bi bi-patch-check-fill text-success fs-5"></i>
+                            <h6 class="text-white fw-bold mb-0" id="confirmTitle">Application Registered</h6>
+                        </div>
+                        <p class="small text-secondary mb-2" id="confirmMessage"></p>
+                        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill" style="background: rgba(245, 197, 24, 0.12); border: 1px solid rgba(245, 197, 24, 0.35);">
+                            <span class="small text-white">Reference ID:</span>
+                            <strong class="text-gold" id="confirmReferenceId" style="font-family: monospace;"></strong>
+                            <span class="badge bg-success ms-1" id="confirmStatusBadge">UNDER_REVIEW</span>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 mt-5">
+        <div class="container py-4 border-top border-secondary border-opacity-10">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5 class="fw-bold mb-0 text-white" data-nb-bind="footer.name">NovaBridge Enterprise</h5>
+                    <p class="small text-secondary mb-0" data-nb-bind="footer.copyright">Copyright © 2026 NovaBridge. - Design: ChimzDv</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <div class="d-flex gap-3 justify-content-center justify-content-md-end">
+                        <a href="terms.html" class="text-secondary small text-decoration-none">Privacy Policy</a>
+                        <a href="terms.html" class="text-secondary small text-decoration-none">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
